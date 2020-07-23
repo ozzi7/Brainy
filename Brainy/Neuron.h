@@ -14,15 +14,16 @@ using namespace std;
 class Neuron
 {
 public:
-	Neuron();
+	Neuron(int _output_id = -1);
 	void Activate(float timestamp, float value);
+	void Add_Output(Axon * axon);
 
 	tuple<float, float, float> position;
 
 private:
-	float id = -1;
+	int output_id = -1; // != -1 for output neurons
 	float last_activation_TS = numeric_limits<float>::lowest();
-	vector<Axon> outgoing_axons;
+	vector<Axon*> outgoing_axons;
 
 	float activation_threshold = 0.2f;
 	float current_potential = -0.2f;

@@ -19,8 +19,10 @@ private:
 
 	int nof_input_neurons = 3;
 	int nof_output_neurons = 3;
+	int nof_main_neurons = 4;
 	vector<Neuron*> input_neurons;
 	vector<Neuron*> output_neurons;
+	vector<Neuron*> main_neurons;
 
-	priority_queue<tuple<float, Axon*>, AxonFiringComparator> pq;
+	priority_queue<tuple<float, Axon*>, vector<tuple<float, Axon*>>, AxonFiringComparator> pq;
 };

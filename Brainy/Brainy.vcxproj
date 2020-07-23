@@ -143,11 +143,13 @@
     <ClCompile Include="Brain.cpp" />
     <ClCompile Include="Brainy.cpp" />
     <ClCompile Include="Neuron.cpp" />
+    <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axon.h" />
     <ClInclude Include="Brain.h" />
     <ClInclude Include="Neuron.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
