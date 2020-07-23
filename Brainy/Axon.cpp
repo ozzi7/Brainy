@@ -1,4 +1,5 @@
 #include "Axon.h"
+#include "Neuron.h"
 
 Axon::Axon()
 {

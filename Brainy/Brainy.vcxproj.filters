@@ -24,12 +24,18 @@
     <ClCompile Include="Axon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Brain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Neuron.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Axon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Brain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
