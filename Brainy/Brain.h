@@ -9,7 +9,7 @@ using namespace std;
 class Brain
 {
 public:
-	Brain();
+	Brain(int _nof_input_neurons, int _nof_output_neurons, int _nof_main_neurons, float _step_size_ms);
 	void Run(vector<float>& input, vector<float>& output, int max_steps);
 
 private:
@@ -22,6 +22,9 @@ private:
 	vector<Neuron*> input_neurons;
 	vector<Neuron*> output_neurons;
 	vector<Neuron*> main_neurons;
+	vector<Neuron*> all_neurons;
+
+	vector<Axon*> all_axons;
 
 	priority_queue<tuple<float, Axon*>, vector<tuple<float, Axon*>>, AxonFiringComparator> * pq;
 };

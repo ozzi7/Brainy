@@ -2,9 +2,14 @@
 #include "Util.h"
 
 
-Brain::Brain()
+Brain::Brain(int _nof_input_neurons, int _nof_output_neurons, int _nof_main_neurons, float _step_size_ms)
 {
 	pq = new priority_queue<tuple<float, Axon*>, vector<tuple<float, Axon*>>, AxonFiringComparator>();
+
+	nof_input_neurons = _nof_input_neurons;
+	nof_output_neurons = _nof_output_neurons;
+	nof_main_neurons = _nof_main_neurons;
+	step_size_ms = _step_size_ms;
 
 	// currently constructs a fully connected graph
 	for (int i = 0; i < nof_input_neurons; ++i)
@@ -21,7 +26,6 @@ Brain::Brain()
 	}
 
 	// create axons between all neurons
-	vector<Neuron*> all_neurons;
 	all_neurons.reserve(input_neurons.size() + output_neurons.size() + main_neurons.size());
 	all_neurons.insert(all_neurons.end(), input_neurons.begin(), input_neurons.end());
 	all_neurons.insert(all_neurons.end(), output_neurons.begin(), output_neurons.end());
@@ -43,6 +47,9 @@ Brain::Brain()
 			
 			all_neurons[i]->Add_Output(axon1);
 			all_neurons[j]->Add_Output(axon2);
+
+			all_axons.push_back(axon1);
+			all_axons.push_back(axon2);
 		}
 	}
 }
