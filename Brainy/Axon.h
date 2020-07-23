@@ -18,7 +18,7 @@ private:
 	tuple<Neuron*, Neuron*> connecting;
 };
 
-struct CompareAxonFiring {
+struct AxonFiringComparator {
     bool operator()(const tuple<float, Axon*> &a1, const tuple<float, Axon*> &a2)
     {
         // return "true" if "p1" is ordered  
