@@ -10,10 +10,9 @@ class Brain
 {
 public:
 	Brain();
-	vector<float> Run(vector<float> input);
+	void Run(vector<float>& input, vector<float>& output, int max_steps);
 
 private:
-	int maximum_post_steps = 10;
 	float current_timestamp_ms = 0.0f;
 	float step_size_ms = 100.0f;
 
@@ -24,5 +23,5 @@ private:
 	vector<Neuron*> output_neurons;
 	vector<Neuron*> main_neurons;
 
-	priority_queue<tuple<float, Axon*>, vector<tuple<float, Axon*>>, AxonFiringComparator> pq;
+	priority_queue<tuple<float, Axon*>, vector<tuple<float, Axon*>>, AxonFiringComparator> * pq;
 };

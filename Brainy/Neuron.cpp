@@ -1,12 +1,14 @@
 #include "Neuron.h"
 
-Neuron::Neuron(int _output_id)
+Neuron::Neuron(priority_queue<tuple<float, Axon*>, vector<tuple<float, Axon*>>, AxonFiringComparator> * _pq,
+	int _output_id)
 {
 	position = make_tuple(
 		-5.0f + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (10.0f))),
 		-5.0f + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (10.0f))),
 		-5.0f + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (10.0f))));
 	output_id = _output_id;
+	pq = _pq;
 }
 void Neuron::Activate(float timestamp, float value)
 {
@@ -22,8 +24,9 @@ void Neuron::Activate(float timestamp, float value)
 
 			for (auto& axon : outgoing_axons)
 			{
-				axon->Activate(timestamp);
+				pq->push(make_tuple(timestamp + axon->length * 100, axon));
 			}
+			current_potential -= 0.2f;
 		}
 	}
 }

@@ -12,10 +12,11 @@ public:
 	Axon(float _length);
 	void Activate(float timestamp);
 
+	tuple<Neuron*, Neuron*> connecting;
+	float length;
+
 private:
 	float weight;
-	float length;
-	tuple<Neuron*, Neuron*> connecting;
 };
 
 struct AxonFiringComparator {
