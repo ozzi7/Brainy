@@ -99,7 +99,7 @@ void Brain::reset()
 
 	for (auto neuron : all_neurons)
 	{
-		neuron.Reset();
+		neuron->Reset();
 	}
 }
 void Brain::Get_Params(vector<float>& params)
