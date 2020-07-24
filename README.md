@@ -49,7 +49,7 @@ if the network was trained to output the sequence with 2 timesteps delay but fai
 
 The network can be trained with a neuroevolution algorithm similar to the one described [here](https://arxiv.org/pdf/1712.06567.pdf). 
 
-In this case, there is a population of 20 individuals where each individual has its own set of randomly initialized parameters (the weights and lengths of axons). Each individual's fitness is measured by feeding it the same input and comparing the generated output to the groundtruth. The individuals are then sorted by their performance (accuracy) on this task. The top 5 fittest individual become the new parents while the other 15 are killed off. The 5 parents' parameters are randomly permutated using samples from a gaussian distribution (multiplied by some factor to regulate mutation speed) to create 19 new individuals. In addition, the best performing parameters are kept as they are and added again to the population to give a total of 20 individuals for the new generation. This process repeats until the required accuracy is achieved or the networks no longer improve. Each iteration of the algorithm is called a generation.
+In this case, there is a population of 20 individuals where each individual has its own set of randomly initialized parameters (the weights and lengths of axons). Each individual's fitness is measured by feeding it the same input and comparing the generated output to the groundtruth. The individuals are then sorted by their performance (accuracy) on this task. The top 5 fittest individual become the new parents while the other 15 are killed off. The 5 parents' parameters are randomly permutated using samples from a gaussian distribution (multiplied by some factor to regulate mutation speed) to create 19 new individuals. In addition, the best performing parameters are kept as they are and added again to the population to give a total of 20 individuals. This process repeats until the required accuracy is achieved or the networks no longer improve. Each iteration of the algorithm is called a generation.
 
 ## Experiments
 Note: For the purpose of minimizing variance in the experiments the network weights and axon lengths have been initialized with a fixed value of 0.01 and 0.1 respectively. The gaussian noise is multiplied by 0.01. 
@@ -67,9 +67,13 @@ The goal of the identity experiment is to see whether a randomly generated binar
 |    16   | 96 | ? |
 
 #### Result for 1 timestep delay
-| # neurons      | # generations |
-| ----------- | ----------- |
-|    1   |   ∞     |
+| # neurons      | # generations  | # spikes | 
+| ----------- | ----------- | ----------- |
+|    1   |   12000 - ∞     |   ?  |
+|    2   |   12000 - ∞     |   ?  |
+|    4   |   12000 - ∞     |   ?  |
+|    8   |   12000 - ∞     |   ?  |
+|    16   |   12000 - ∞     |   ?  |
 
 Note the slow convergence in cases where the number of neurons are barely enough to solve the task. 
 
