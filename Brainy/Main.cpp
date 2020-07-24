@@ -21,7 +21,7 @@ int main()
     const int input_length = 200;
     const int nof_input_neurons = 3;
     const int nof_output_neurons = 3;
-    const int nof_main_neurons = 4;
+    const int nof_main_neurons = 14;
     const int total_neurons = nof_input_neurons + nof_output_neurons + nof_main_neurons;
     const float step_size_ms = 100;
     const float sigma = 0.01f;
@@ -98,7 +98,7 @@ int main()
             float sum_rewards = 0.0f;
             for (auto& n : rewards)
                 sum_rewards += n;
-            cout << "Best fitness: " << rewards[index[0]] << ", Avg reward: " << (sum_rewards / population_size) << endl;
+            cout << "Iter: " << iter << ", Best fitness: " << rewards[index[0]] << ", Avg fitness: " << (sum_rewards / population_size) << endl;
         }
     }
 }

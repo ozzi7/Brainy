@@ -22,6 +22,6 @@ private:
 struct AxonFiringComparator {
     bool operator()(const tuple<float, Axon*> &a1, const tuple<float, Axon*> &a2)
     {
-        return get<0>(a1) < get<0>(a2);
+        return get<0>(a1) > get<0>(a2);
     }
 };

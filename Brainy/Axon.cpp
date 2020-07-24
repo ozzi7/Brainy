@@ -8,5 +8,5 @@ Axon::Axon(float _length)
 }
 void Axon::Activate(float timestamp)
 {
-	get<0>(connecting)->Activate(timestamp, weight);
+	get<1>(connecting)->Activate(timestamp, weight);
 }

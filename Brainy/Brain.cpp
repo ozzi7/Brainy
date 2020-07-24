@@ -74,15 +74,17 @@ void Brain::Run(vector<float> &input, vector<float> &output, int max_steps)
 				// process firing if it happened in this interval
 				get<1>(firing)->Activate(get<0>(firing));
 
-				// record activity if it is an output neuron
-				if (get<1>(get<1>(firing)->connecting)->output_id != -1)
-				{
-					output[i * nof_output_neurons + get<1>(get<1>(firing)->connecting)->output_id] += 1.0f;
-				}
 				pq->pop();
 			}
 			else
 				break;
+		}
+
+		/* record output neuron firings */
+		for (int j = 0; j < nof_output_neurons; ++j)
+		{
+			output[i * nof_output_neurons + output_neurons[j]->output_id] = output_neurons[j]->nof_firings;
+			output_neurons[j]->nof_firings = 0.0f;
 		}
 		current_timestamp_ms += step_size_ms;
 	}
@@ -114,7 +116,7 @@ void Brain::Set_Params(vector<float>& params)
 {
 	for (int i = 0; i < all_axons.size(); i += 1)
 	{
-		all_axons[i]->length = params[i*2];
-		all_axons[i]->weight = params[i*2+1];
+		all_axons[i]->length = min(1.0f, max(0.0f, params[i * 2])); // [0,1]
+		all_axons[i]->weight = min(1.0f, max(-1.0f, params[i * 2 + 1])); // [-1,1]
 	}
 }

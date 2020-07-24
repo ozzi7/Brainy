@@ -22,6 +22,7 @@ public:
 
 	tuple<float, float, float> position;
 	int output_id = -1; // != -1 for output neurons
+	float nof_firings = 0;
 
 private:
 	float last_activation_TS = numeric_limits<float>::lowest();
