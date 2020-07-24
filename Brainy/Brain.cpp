@@ -35,13 +35,15 @@ Brain::Brain(int _nof_input_neurons, int _nof_output_neurons, int _nof_main_neur
 	{
 		for (int j = 0; j < all_neurons.size(); ++j)
 		{
-			Axon* axon = new Axon(Util::Get_Euclidean_distance(
-				all_neurons[i]->position, all_neurons[j]->position) / 10.0f);
+			if (i != j) // disallow self-loops for now
+			{
+				Axon* axon = new Axon(0.1f);
 
-			axon->connecting = make_tuple(all_neurons[i], all_neurons[j]);
-			
-			all_neurons[i]->Add_Output(axon);
-			all_axons.push_back(axon);
+				axon->connecting = make_tuple(all_neurons[i], all_neurons[j]);
+
+				all_neurons[i]->Add_Output(axon);
+				all_axons.push_back(axon);
+			}
 		}
 	}
 }

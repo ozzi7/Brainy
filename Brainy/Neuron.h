@@ -28,10 +28,12 @@ private:
 	float last_activation_TS = numeric_limits<float>::lowest();
 	vector<Axon*> outgoing_axons;
 
-	float activation_threshold = 0.2f;
-	float current_potential = -0.2f;
-	float potential_floor = -0.2f;
-	float refractory_period = 10.0f;
+	float current_potential = 0.0f;
+
+	const float starting_potential = 0.0f;
+	const float activation_threshold = 0.2f;
+	const float potential_floor = -0.2f;
+	const float refractory_period = 10.0f;
 
 	priority_queue<tuple<float, Axon*>, vector<tuple<float, Axon*>>, AxonFiringComparator> * pq;
 };

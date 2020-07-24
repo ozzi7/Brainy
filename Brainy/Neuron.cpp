@@ -26,7 +26,7 @@ void Neuron::Activate(float timestamp, float value)
 			{
 				pq->push(make_tuple(timestamp + axon->length * 100, axon));
 			}
-			current_potential = -0.2f;
+			current_potential = starting_potential;
 			nof_firings++;
 		}
 	}
@@ -38,6 +38,6 @@ void Neuron::Add_Output(Axon* axon)
 void Neuron::Reset()
 {
 	last_activation_TS = numeric_limits<float>::lowest();
-	current_potential = -0.2f;
+	current_potential = starting_potential;
 	nof_firings = 0.0f;
 }
