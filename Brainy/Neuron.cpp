@@ -34,3 +34,8 @@ void Neuron::Add_Output(Axon* axon)
 {
 	outgoing_axons.push_back(axon);
 }
+void Neuron::Reset()
+{
+	last_activation_TS = numeric_limits<float>::lowest();
+	current_potential = -0.2f;
+}

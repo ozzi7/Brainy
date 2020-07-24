@@ -15,6 +15,8 @@ public:
 	void Set_Params(vector<float> & params);
 
 private:
+	void reset();
+
 	float current_timestamp_ms = 0.0f;
 	float step_size_ms = 100.0f;
 

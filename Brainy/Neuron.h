@@ -18,6 +18,7 @@ public:
 		int _output_id = -1);
 	void Activate(float timestamp, float value);
 	void Add_Output(Axon * axon);
+	void Reset();
 
 	tuple<float, float, float> position;
 	int output_id = -1; // != -1 for output neurons

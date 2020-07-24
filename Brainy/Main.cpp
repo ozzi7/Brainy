@@ -22,6 +22,7 @@ int main()
     const int nof_input_neurons = 3;
     const int nof_output_neurons = 3;
     const int nof_main_neurons = 4;
+    const int total_neurons = nof_input_neurons + nof_output_neurons + nof_main_neurons;
     const float step_size_ms = 100;
     const float sigma = 0.01f;
 
@@ -29,15 +30,23 @@ int main()
     vector<float> result(input_length * nof_output_neurons, 0.0f);
     vector<float> output(input_length * nof_output_neurons, 0.0f);
 
-    vector<vector<float>> params(population_size, vector<float>(90,0.0f));
+    vector<vector<float>> params(population_size, vector<float>(2*total_neurons* total_neurons,0.0f));
     vector<float> rewards(population_size, 0.0f);    
     vector<int> index(rewards.size(), 0);
-    vector<Brain*> brains(population_size, new Brain(nof_input_neurons, nof_output_neurons, nof_main_neurons, step_size_ms));
+    vector<Brain*> brains;
     
+    for (int i = 0; i < population_size; ++i)
+    {
+        brains.push_back(new Brain(nof_input_neurons, nof_output_neurons, nof_main_neurons, step_size_ms));
+        brains[i]->Get_Params(params[i]);
+    }
+
     /* Random generator for gaussian samples */
     std::random_device rd;
     mt19937 gen(rd());
     normal_distribution<float> distribution(0.0f, 1.0f);
+
+    vector<float> temporary_param_v(2 * total_neurons * total_neurons, 0.0f);
 
     for (int iter = 0; iter < training_iterations; ++iter)
     {
@@ -52,6 +61,7 @@ int main()
         /* Evaluate all individuals on the new input */
         for (int b = 0; b < brains.size(); ++b)
         {
+            fill(output.begin(), output.end(), 0.0f);
             brains[b]->Run(input, output, input_length);
             rewards[b] = Get_Accuracy_Identity(output, result);
         }
@@ -69,13 +79,13 @@ int main()
 
         for (int i = 1; i < population_size; ++i)
         {
-            for (int j = 0; j < params[index[i % nof_parents]].size(); ++j)
+            for (int j = 0; j < params[index[(i-1) % nof_parents]].size(); ++j)
             {
                 // permutate params
-                params[index[i % nof_parents]][j] += sigma * distribution(gen);
+                temporary_param_v[j] = params[index[(i - 1) % nof_parents]][j] + sigma * distribution(gen);
             }
             // apply params
-            brains[i]->Set_Params(params[index[i % nof_parents]]);
+            brains[i]->Set_Params(temporary_param_v);
         }
 
         // read params again into param vector
