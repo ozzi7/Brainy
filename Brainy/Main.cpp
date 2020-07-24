@@ -57,7 +57,7 @@ int main()
         for (int iter = 0; iter < training_iterations; ++iter)
         {
             /* Create a new input sample */
-            Get_Input_Output_Identity(input, result, 1);
+            Get_Input_Output_Identity(input, result, 0);
 
             /* Create an index for later sorting */
             for (int i = 0; i != index.size(); i++) {
@@ -106,7 +106,8 @@ int main()
 
             if (rewards[index[0]] >= 0.99)
             {
-                cout << "99% accuracy at iteration: " << iter << endl;
+                cout << "99% accuracy at iteration: " << iter << " with " << brains[index[0]]->total_firings << " spikes" << endl;
+
                 iters_needed += iter;
                 break;
             }

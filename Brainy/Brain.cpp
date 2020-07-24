@@ -86,14 +86,21 @@ void Brain::Run(vector<float> &input, vector<float> &output, int max_steps)
 		for (int j = 0; j < nof_output_neurons; ++j)
 		{
 			output[i * nof_output_neurons + output_neurons[j]->output_id] = output_neurons[j]->nof_firings;
+			total_firings += output_neurons[j]->nof_firings;
 			output_neurons[j]->nof_firings = 0.0f;
 		}
 		current_timestamp_ms += step_size_ms;
+	}
+
+	for (int i = 0; i < all_neurons.size(); ++i)
+	{
+		total_firings += all_neurons[i]->nof_firings;
 	}
 }
 void Brain::reset()
 {
 	current_timestamp_ms = 0.0f;
+	total_firings = 0;
 
 	// clear the queue for next Run call 
 	while (!pq->empty())

@@ -14,6 +14,8 @@ public:
 	void Get_Params(vector<float> & params);
 	void Set_Params(vector<float> & params);
 
+	int total_firings = 0;
+
 private:
 	void reset();
 
@@ -23,6 +25,7 @@ private:
 	int nof_input_neurons = 3;
 	int nof_output_neurons = 3;
 	int nof_main_neurons = 4;
+
 	vector<Neuron*> input_neurons;
 	vector<Neuron*> output_neurons;
 	vector<Neuron*> main_neurons;
