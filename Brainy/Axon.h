@@ -14,9 +14,9 @@ public:
 
 	tuple<Neuron*, Neuron*> connecting;
 	float length;
-
-private:
 	float weight;
+private:
+
 };
 
 struct AxonFiringComparator {

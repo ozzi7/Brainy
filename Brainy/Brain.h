@@ -10,7 +10,9 @@ class Brain
 {
 public:
 	Brain(int _nof_input_neurons, int _nof_output_neurons, int _nof_main_neurons, float _step_size_ms);
-	void Run(vector<float>& input, vector<float>& output, int max_steps);
+	void Run(vector<float> & input, vector<float>& output, int max_steps);
+	void Get_Params(vector<float> & params);
+	void Set_Params(vector<float> & params);
 
 private:
 	float current_timestamp_ms = 0.0f;

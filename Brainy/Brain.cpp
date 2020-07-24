@@ -33,23 +33,15 @@ Brain::Brain(int _nof_input_neurons, int _nof_output_neurons, int _nof_main_neur
 
 	for (int i = 0; i < all_neurons.size(); ++i)
 	{
-		for (int j = 0; j < all_neurons.size(); ++j)
+		for (int j = i; j < all_neurons.size(); ++j)
 		{
-			float test = Util::Get_Euclidean_distance(
-				all_neurons[i]->position, all_neurons[j]->position);
-			Axon* axon1 = new Axon(Util::Get_Euclidean_distance(
+			Axon* axon = new Axon(Util::Get_Euclidean_distance(
 				all_neurons[i]->position, all_neurons[j]->position) / 10.0f);
-			Axon * axon2 = new Axon(Util::Get_Euclidean_distance(
-				all_neurons[j]->position, all_neurons[i]->position) / 10.0f);
 
-			axon1->connecting = make_tuple(all_neurons[i], all_neurons[j]);
-			axon2->connecting = make_tuple(all_neurons[j], all_neurons[i]);
+			axon->connecting = make_tuple(all_neurons[i], all_neurons[j]);
 			
-			all_neurons[i]->Add_Output(axon1);
-			all_neurons[j]->Add_Output(axon2);
-
-			all_axons.push_back(axon1);
-			all_axons.push_back(axon2);
+			all_neurons[i]->Add_Output(axon);
+			all_axons.push_back(axon);
 		}
 	}
 }
@@ -91,5 +83,27 @@ void Brain::Run(vector<float> &input, vector<float> &output, int max_steps)
 				break;
 		}
 		current_timestamp_ms += step_size_ms;
+	}
+
+	// clear the queue for next Run call 
+	while (!pq->empty())
+	{
+		pq->pop();
+	}
+}
+void Brain::Get_Params(vector<float>& params)
+{
+	for (int i = 0; i < all_axons.size(); i+=2)
+	{
+		params[i] = all_axons[i]->length;
+		params[i+1] = all_axons[i]->weight;
+	}
+}
+void Brain::Set_Params(vector<float>& params)
+{
+	for (int i = 0; i < all_axons.size(); i += 2)
+	{
+		all_axons[i]->length = params[i];
+		all_axons[i]->weight = params[i+1];
 	}
 }
