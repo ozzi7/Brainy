@@ -41,11 +41,11 @@ The output could for example be
 
 *000 000 110 001 001 111 000 011 000 111 011 313 201 110 411 101 ...*
 
-if the network was trained to output the sequence with 6 timesteps delay but failed to achieve 100% accuracy.
+if the network was trained to shift the output sequence 6 steps into the future but failed to achieve 100% accuracy.
 
 ## Neuro-evolution
 
-### Algorithm 1
+### Algorithm
 
 The network can be trained with a neuroevolution algorithm similar to the one described [here](https://arxiv.org/pdf/1712.06567.pdf). 
 
@@ -57,7 +57,7 @@ Note: For the purpose of minimizing variance in the experiments the network weig
 ### Identity
 The goal of the identity experiment is to see whether a randomly generated binary input sequence can be accurately reproduced as output with a fixed number of delay. The input is fed continuously into the network while the output is generated. This forces the network to temporarily memorize and buffer the input, while also learning to synchronize the output into the 100ms intervals. If not otherwise noted, the experiments are repeated 10 times and then averaged, and the task was considered solved when the best performing individual achieved a >= 99% accuracy.
 
-#### Result for 0 timestep delay
+#### Results for 0 timestep delay
 | # neurons      | # generations | # spikes | 
 | ----------- | ----------- | ----------- |
 |    1   | 48       | ? |
