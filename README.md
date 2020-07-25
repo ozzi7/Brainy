@@ -71,9 +71,9 @@ The goal of the identity experiment is to see whether a randomly generated binar
 #### Result for 1 timestep delay
 | # neurons      | # generations  | # spikes | 
 | ----------- | ----------- | ----------- |
-|    1   |   125 - ∞     |   >= 1456  |
-|    2   |   75 - ∞     |   >= 1332  |
-|    4   |   77 -  ∞    |   >= 1463  |
+|    1   |   >= 125     |   >= 1456  |
+|    2   |   >= 75     |   >= 1332  |
+|    4   |   >= 77    |   >= 1463  |
 |    8   |   117   |   1824  |
 |    16  |   245  |   2201  |
 
@@ -81,10 +81,19 @@ The goal of the identity experiment is to see whether a randomly generated binar
 | # neurons      | # generations  | # spikes | 
 | ----------- | ----------- | ----------- |
 |    1   |   ∞     |   ?  |
-|    2   |   794 - ∞   |   >= 1858  |
-|    4   |   327 - ∞    |   >= 2015  |
-|    8   |   175 - ∞  |   >= 1984  |
-|    16  |  326 - ∞ |   >= 2274  |
+|    2   |   >= 794   |   >= 1858  |
+|    4   |   >= 327    |   >= 2015  |
+|    8   |   >= 175  |   >= 1984  |
+|    16  |   >= 326 |   >= 2274  |
+
+#### Result for 9 timesteps delay
+| # neurons      | # generations  | # spikes |  maximum accuracy | 
+| ----------- | ----------- | ----------- | ----------- |
+|    1   |   ∞     |   ?  |   73.9%  |
+|    2   |   ∞   |   ?  |   75.1%  |
+|    4   |   ∞    |   ?  |   83.4%  |
+|    8   |   ∞  |   ?  |   81.6%  |
+|    16  |   ∞ |   ?  |   ?  |
 
 Note that even in cases with ∞ generations some populations get stuck in local minima while others quickly find a solution.
 
