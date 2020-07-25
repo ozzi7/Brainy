@@ -93,7 +93,7 @@ The goal of the identity experiment is to see whether a randomly generated binar
 |    2   |   ∞   |   ?  |   75.1%  |
 |    4   |   ∞    |   ?  |   83.4%  |
 |    8   |   ∞  |   ?  |   85.3%  |
-|    16  |   ∞ |   ?  |   ?  |
+|    16  |   ∞ |   ?  |   84.4%  |
 
 Note that in some cases not all 10 testruns converged. In those cases the minimum number of generation and spikes are listed instead.
 
