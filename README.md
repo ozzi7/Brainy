@@ -66,18 +66,27 @@ The goal of the identity experiment is to see whether a randomly generated binar
 |    2   | 48 | 1345 |
 |    4   | 51  | 1406 |
 |    8   | 57 | 1531 |
-|    16   | 101 | 1711 |
+|    16  | 101 | 1711 |
 
 #### Result for 1 timestep delay
 | # neurons      | # generations  | # spikes | 
 | ----------- | ----------- | ----------- |
-|    1   |   12000 - ∞     |   ?  |
-|    2   |   12000 - ∞     |   ?  |
-|    4   |   12000 - ∞     |   ?  |
-|    8   |   12000 - ∞     |   ?  |
-|    16   |   12000 - ∞     |   ?  |
+|    1   |   125 - ∞     |   >= 1456  |
+|    2   |   75 - ∞     |   >= 1332  |
+|    4   |   77 -  ∞    |   >= 1463  |
+|    8   |   117   |   1824  |
+|    16  |   245  |   2201  |
 
-Note the slow convergence in cases where the number of neurons are barely enough to solve the task. 
+#### Result for 3 timesteps delay
+| # neurons      | # generations  | # spikes | 
+| ----------- | ----------- | ----------- |
+|    1   |   ∞     |   ?  |
+|    2   |   794 - ∞   |   >= 1858  |
+|    4   |   327 - ∞    |   >= 2015  |
+|    8   |   175 - ∞  |   >= 1984  |
+|    16  |  344 - ∞ |   >= 2273  |
+
+Note that even in cases with ∞ generations some populations get stuck in local minima while others quickly find a solution.
 
 ### Memorization
 **TODO**
