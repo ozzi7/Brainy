@@ -84,7 +84,7 @@ The goal of the identity experiment is to see whether a randomly generated binar
 |    2   |   794 - ∞   |   >= 1858  |
 |    4   |   327 - ∞    |   >= 2015  |
 |    8   |   175 - ∞  |   >= 1984  |
-|    16  |  344 - ∞ |   >= 2273  |
+|    16  |  326 - ∞ |   >= 2274  |
 
 Note that even in cases with ∞ generations some populations get stuck in local minima while others quickly find a solution.
 
