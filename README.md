@@ -30,18 +30,18 @@ An axon connects two neurons with each other. When a signal travels on the axon 
 -  **Weight or signal multiplicator (trainable parameter) : [-1,1]**
 
 ## Input/Output
-The input to the network is an arbitrary length sequence of bits while the output is a sequence of integers. In every time step (100ms each), the next three input bits are fed into the three input neurons. For each 1 in the input sequence the corresponding input neuron is activated, while for each 0 nothing is done. The output neurons record for each timestep the number of times they were activated and hence the output is a sequence of integers.
+The input to the network is an arbitrary length sequence of bits while the output is a sequence of integers. In every interval of 100ms, the next three input bits are fed into the three input neurons. For each 1 in the input sequence the corresponding input neuron is activated, while for each 0 nothing is done. The output neurons record for each interval the number of times they were activated and hence the output is a sequence of integers.
 
 For example, consider the following input
 
 *110 001 001 111 000 011 000 111 011 100 101 110 111 101 ...*
 
-In the first timestep, input neuron 0 and 1 are activated while input neuron 3 is not activated. In the next step, input neuron 3 is activated.
+In the first interval, input neuron 0 and 1 are activated while input neuron 3 is not activated. In the next interval, input neuron 3 is activated.
 The output could for example be
 
 *000 000 110 001 001 111 000 011 000 111 011 313 201 110 411 101 ...*
 
-if the network was trained to output the sequence with 2 timesteps delay but failed to achieve 100% accuracy.
+if the network was trained to output the sequence with 6 timesteps delay but failed to achieve 100% accuracy.
 
 ## Neuro-evolution
 
@@ -55,7 +55,7 @@ In this case, there is a population of 20 individuals where each individual has 
 Note: For the purpose of minimizing variance in the experiments the network weights and axon lengths have been initialized with a fixed value of 0.01 and 0.1 respectively. The gaussian noise is multiplied by 0.01. 
 
 ### Identity
-The goal of the identity experiment is to see whether a randomly generated binary input sequence can be accurately reproduced as output with a fixed number of delay. The input is fed continuously into the network while the output is generated. This forces the network to temporarily memorize and buffer the input, while also learning to synchronize the output into the 100ms timesteps. If not otherwise noted, the experiments are repeated 10 times and then averaged, and the task was considered solved when the best performing individual achieved a >= 99% accuracy.
+The goal of the identity experiment is to see whether a randomly generated binary input sequence can be accurately reproduced as output with a fixed number of delay. The input is fed continuously into the network while the output is generated. This forces the network to temporarily memorize and buffer the input, while also learning to synchronize the output into the 100ms intervals. If not otherwise noted, the experiments are repeated 10 times and then averaged, and the task was considered solved when the best performing individual achieved a >= 99% accuracy.
 
 #### Result for 0 timestep delay
 | # neurons      | # generations | # spikes | 
