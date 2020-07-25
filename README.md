@@ -57,7 +57,7 @@ In this case, there is a population of 20 individuals where each individual has 
 *Note: For the purpose of minimizing variance in the experiments the network weights and axon lengths have been initialized with a fixed value of 0.01 and 1.0 respectively. The gaussian noise is multiplied by 0.01.* 
 
 ### Identity
-The goal of the identity experiment is to see whether a randomly generated binary input sequence can be accurately reproduced as output with a fixed number of delay. The input is fed continuously into the network while the output is generated. This forces the network to temporarily memorize and buffer the input, while also learning to synchronize the output into the 100ms intervals. If not otherwise noted, the experiments are repeated 10 times and then averaged, and the task was considered solved when the best performing individual achieved a >= 99% accuracy.
+The goal of the identity experiment is to see whether a randomly generated binary input sequence can be accurately reproduced as output with a fixed number of delay. The input of 400 bits is fed continuously into the network while the output is generated. This forces the network to temporarily memorize and buffer the input, while also learning to synchronize the output into the 100ms intervals. If not otherwise noted, the experiments are repeated 10 times and then averaged, and the task was considered solved when the best performing individual achieved a >= 99% accuracy.
 
 #### Results for 0 timestep delay
 | # neurons      | # generations | # spikes | 
