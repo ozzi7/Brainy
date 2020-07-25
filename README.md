@@ -92,10 +92,10 @@ The goal of the identity experiment is to see whether a randomly generated binar
 |    1   |   ∞     |   ?  |   73.9%  |
 |    2   |   ∞   |   ?  |   75.1%  |
 |    4   |   ∞    |   ?  |   83.4%  |
-|    8   |   ∞  |   ?  |   83.9%  |
+|    8   |   ∞  |   ?  |   85.3%  |
 |    16  |   ∞ |   ?  |   ?  |
 
-Note that even in cases with ∞ generations some populations get stuck in local minima while others quickly find a solution.
+Note that in some cases not all 10 testruns converged. In those cases the minimum number of generation and spikes are listed instead.
 
 ### Memorization
 **TODO**
