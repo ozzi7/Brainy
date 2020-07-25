@@ -92,7 +92,7 @@ The goal of the identity experiment is to see whether a randomly generated binar
 |    1   |   ∞     |   ?  |   73.9%  |
 |    2   |   ∞   |   ?  |   75.1%  |
 |    4   |   ∞    |   ?  |   83.4%  |
-|    8   |   ∞  |   ?  |   81.6%  |
+|    8   |   ∞  |   ?  |   83.9%  |
 |    16  |   ∞ |   ?  |   ?  |
 
 Note that even in cases with ∞ generations some populations get stuck in local minima while others quickly find a solution.
