@@ -60,7 +60,7 @@ There is a population of 20 individuals where each individual has its own set of
 ### Identity
 The goal of the identity experiment is to see whether a randomly generated binary input sequence can be accurately reproduced as output with a fixed number of delay. The input of 400 bits is fed continuously into the network while the output is generated. This forces the network to temporarily memorize and buffer the input, while also learning to synchronize the output into the 100ms intervals. If not otherwise noted, the experiments are repeated 10 times and then averaged, and the task was considered solved when the best performing individual achieved at least 99% accuracy. The number of spikes needed is the total number of neuron firings of the best individual on the last input sample.
 
-#### Results for 0 timestep delay
+#### Results for 0 timestep delay 
 | # main neurons     | # generations | # spikes | 
 | ----------- | ----------- | ----------- |
 |    1   | 47  | 1306 |
@@ -72,9 +72,9 @@ The goal of the identity experiment is to see whether a randomly generated binar
 #### Result for 1 timestep delay
 | # neurons      | # generations  | # spikes | 
 | ----------- | ----------- | ----------- |
-|    1   |   >= 125     |   >= 1456  |
-|    2   |   >= 75     |   >= 1332  |
-|    4   |   >= 77    |   >= 1463  |
+|    1   |   > 125     |   > 1456  |
+|    2   |   > 75     |   > 1332  |
+|    4   |   > 77    |   > 1463  |
 |    8   |   117   |   1824  |
 |    16  |   245  |   2201  |
 
@@ -82,10 +82,10 @@ The goal of the identity experiment is to see whether a randomly generated binar
 | # neurons      | # generations  | # spikes | 
 | ----------- | ----------- | ----------- |
 |    1   |   ∞     |   ?  |
-|    2   |   >= 794   |   >= 1858  |
-|    4   |   >= 327    |   >= 2015  |
-|    8   |   >= 175  |   >= 1984  |
-|    16  |   >= 326 |   >= 2274  |
+|    2   |   > 794   |   > 1858  |
+|    4   |   > 327    |   > 2015  |
+|    8   |   > 175  |   > 1984  |
+|    16  |   > 326 |   > 2274  |
 
 #### Result for 9 timesteps delay
 | # neurons      | # generations  | # spikes |  maximum accuracy | 
