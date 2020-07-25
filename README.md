@@ -96,7 +96,6 @@ The goal of the identity experiment is to see whether a randomly generated binar
 |    8   |   ∞  |   ?  |   85.3%  |
 |    16  |   ∞ |   ?  |   84.4%  |
 
-Note that in some cases not all 10 trial runs converged. In those cases the minimum number of generations and spikes are listed instead.
 
 ### Memorization
 **TODO**
