@@ -60,13 +60,13 @@ In this case, there is a population of 20 individuals where each individual has 
 The goal of the identity experiment is to see whether a randomly generated binary input sequence can be accurately reproduced as output with a fixed number of delay. The input of 400 bits is fed continuously into the network while the output is generated. This forces the network to temporarily memorize and buffer the input, while also learning to synchronize the output into the 100ms intervals. If not otherwise noted, the experiments are repeated 10 times and then averaged, and the task was considered solved when the best performing individual achieved a >= 99% accuracy. The number of spikes needed is the total number of neuron firings of the best individual on the last input sample.
 
 #### Results for 0 timestep delay
-| # neurons      | # generations | # spikes | 
+| # main neurons     | # generations | # spikes | 
 | ----------- | ----------- | ----------- |
-|    1   | 48       | ? |
-|    2   | 73        | ? |
-|    4   | 55        | ?|
-|    8   | 69 | ? |
-|    16   | 96 | ? |
+|    1   | 47  | 1306 |
+|    2   | 48 | 1345 |
+|    4   | 51  | 1406 |
+|    8   | 57 | 1531 |
+|    16   | 101 | 1711 |
 
 #### Result for 1 timestep delay
 | # neurons      | # generations  | # spikes | 
