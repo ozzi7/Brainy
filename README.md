@@ -1,6 +1,6 @@
 # Brainy
 
-A small asynchronous artificial neural network that can learn to recognize and memorize patterns and execute simple operations such as XOR. It is trained using two different neuro-evolution algorithms.
+A small spiking neural network (SNN) that can learn to recognize and memorize patterns and execute simple operations such as XOR. It is trained using two different neuro-evolution algorithms.
 
 ## Neural Network
 ### Structure
