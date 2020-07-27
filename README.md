@@ -33,7 +33,7 @@ An axon connects two neurons with each other. When a signal travels on the axon 
 An axon with a length of 1.0 takes 100ms to traverse.
 
 ## Input/Output
-The input to the network is an arbitrary length sequence of bits while the output is a sequence of integers. In every interval of 100ms, the next three input bits are fed into the three input neurons. For each 1 in the input sequence the corresponding input neuron is activated, while for each 0 nothing is done. The output neurons record for each interval the number of times they were activated and hence the output is a sequence of integers.
+The input to the network is an arbitrary length sequence of bits while the output is a sequence of integers. In every interval of 100ms, the next three input bits are fed into the three input neurons. Temporal encoding is used, meaning that for each 1 in the input sequence the corresponding input neuron is activated once, while for each 0 nothing is done. The output neurons record for each interval the number of times they were activated and hence the output is a sequence of integers.
 
 For example, consider the following input
 
