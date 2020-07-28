@@ -94,7 +94,7 @@ The goal of the identity experiment is to see whether a randomly generated binar
 |    2   |   ∞   |   ?  |   75.1%  |
 |    4   |   ∞    |   ?  |   83.4%  |
 |    8   |   ∞  |   ?  |   85.3%  |
-|    16  |   ∞ |   ?  |   92.6%  |
+|    16  |   ∞ |   ?  |   93.3%  |
 
 
 ### Memorization
