@@ -63,11 +63,11 @@ The goal of the identity experiment is to see whether a randomly generated binar
 #### Results for 0 timestep delay 
 | # main neurons     | # generations | # spikes | 
 | ----------- | ----------- | ----------- |
-|    1   | 47  | 1306 |
+|    1   | 47 | 1306 |
 |    2   | 48 | 1345 |
-|    4   | 51  | 1406 |
+|    4   | 51 | 1406 |
 |    8   | 57 | 1531 |
-|    16  | 101 | 1711 |
+|    16  | 101  | 1711 |
 
 #### Result for 1 timestep delay
 | # neurons      | # generations  | # spikes | 
