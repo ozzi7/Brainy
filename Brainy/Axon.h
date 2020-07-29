@@ -11,6 +11,8 @@ class Axon
 public:
 	Axon(float _length);
 	void Activate(float timestamp);
+	void SetWeight(float new_weight);
+	void SetLength(float new_length);
 
 	tuple<Neuron*, Neuron*> connecting;
 	float length;
