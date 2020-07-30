@@ -22,8 +22,8 @@ public:
 	void Activate(Axon* activated_axon, float timestamp, float value);
 	void Add_Output_Axon(Axon * axon);
 	void Add_Input_Axon(Axon* axon);
-	void Reset();
 	void Update_Weights_STDP(float timestamp);
+	void Reset();
 
 	tuple<float, float, float> position;
 	int output_id = -1; // != -1 for output neurons
@@ -50,10 +50,11 @@ private:
 	const float refractory_period = 10.0f;
 
 	/* STDP */
-	const float nu_pos = 0.3f;
-	const float nu_neg = 0.2f;
+	const float nu_pos = 0.06;
+	const float nu_neg = -0.09f;
 
 	bool is_adaptive;
 	bool is_decaying;
+	bool is_stdp_enabled = true;
 	priority_queue<tuple<float, Axon*>, vector<tuple<float, Axon*>>, AxonFiringComparator> * pq;
 };

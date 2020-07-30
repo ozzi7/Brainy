@@ -22,7 +22,7 @@ string Get_String(vector<float> data);
 const int population_size = 20;
 const int nof_parents = 5;
 const int training_iterations = 1000000;
-const int input_length = 500;
+const int input_length = 1000;
 const int nof_input_neurons = 3;
 const int nof_output_neurons = 3;
 const int nof_main_neurons = 8;
@@ -91,8 +91,8 @@ int main()
             );
 
             /* read params out again they can be changed by STDP*/
-            //for (int i = 0; i < population_size; ++i)
-            //    brains[i]->Get_Params(params[i]);
+            for (int i = 0; i < population_size; ++i)
+                brains[i]->Get_Params(params[i]);
 
             Neuroevolution_Algorithm_1(index, brains, temporary_param_v, params);
             //Neuroevolution_Algorithm_2(index, brains, temporary_param_v, params, rewards);
@@ -114,7 +114,7 @@ int main()
             }
 
             // regularly output some statistics
-            if (iter % 10 == 0) {
+            if (iter % 1 == 0) {
                 cout << "Iter: " << iter << ", Best fitness: " << rewards[index[0]] << ", Avg fitness: " << (sum_rewards / population_size) <<
                     ", Spikes: " << brains[index[0]]->total_firings << endl;
             }

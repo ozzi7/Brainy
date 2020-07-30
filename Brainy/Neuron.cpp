@@ -30,7 +30,6 @@ void Neuron::Activate(Axon* activated_axon, float timestamp, float value)
 	has_fired = false;
 	last_decay_timestamp = timestamp;
 
-	// record history
 	if (last_activation_TS + refractory_period <= timestamp)
 	{
 		// allow re-activation if refractory period has passed
@@ -76,34 +75,38 @@ void Neuron::Reset()
 }
 void Neuron::Update_Weights_STDP(float timestamp)
 {
+	if (!is_stdp_enabled)
+		return;
+
 	/* updates the weights for all incoming axons, unless the activations are not old enough then we postpone the update*/
 	/* update the output neurons based on */
 	int i;
 	for (i = 0; i < incoming_axon_activations.size(); ++i)
 	{
-		if (get<0>(incoming_axon_activations[i]) <= timestamp - 1000)
+		if (get<0>(incoming_axon_activations[i]) <= timestamp - 100)
 		{
 			float weight_change = 0.0f;
-			float Aplus = (1.0f - get<1>(incoming_axon_activations[i])->weight) * nu_pos;
-			float Aminus = (1.0f - get<1>(incoming_axon_activations[i])->weight) * nu_neg;
+			float Aplus = (1.0f - get<1>(incoming_axon_activations[i])->weight) *nu_pos;
+			float Aminus = (get<1>(incoming_axon_activations[i])->weight - (-1.0f)) * nu_neg;
 			for (int j = neuron_firings.size()-1; j >= 0; --j)
 			{
 				float time_diff = neuron_firings[j] - get<0>(incoming_axon_activations[i]);
-				if (time_diff > 80.0f || time_diff < 80.0f)
+				if (time_diff > 100.0f || time_diff < -100.0f)
 					break;
 
 				if (time_diff > 0.0f)
 				{
 					// x > 0
-					weight_change += Aplus * exp(-time_diff / 10);
+					weight_change += Aplus * exp(-time_diff / 3.0f);
 				}
 				else if (time_diff < 0.0f)
 				{
 					// x < 0
-					weight_change += -Aminus * exp(time_diff / 10);
+					weight_change += Aminus * exp(time_diff / 15.0f);
 				}
 			}
-			/*cout << "Update weight: " << get<1>(incoming_axon_activations[i])->weight << " to " <<
+			/*if(weight_change < -0.01f || weight_change > 0.01f)
+			cout << "Update weight: " << get<1>(incoming_axon_activations[i])->weight << " to " <<
 				get<1>(incoming_axon_activations[i])->weight + weight_change << endl;*/
 
 			get<1>(incoming_axon_activations[i])->SetWeight(get<1>(incoming_axon_activations[i])->weight + weight_change);
@@ -113,5 +116,29 @@ void Neuron::Update_Weights_STDP(float timestamp)
 	// removes the first and already updated axon activations
 	incoming_axon_activations.erase(incoming_axon_activations.begin(), incoming_axon_activations.begin() + i);
 
-	//neuron_firings.clear(); // later should be deleted
+	neuron_firings.clear(); // later should be deleted
+
+	// weight adjustment test
+	//for (float weight = -1.0f; weight <= 1.0f; weight = weight + 0.1f)
+	//{
+	//	for (float diff = -100.0f; diff <= 100.0f; diff = diff + 10.0f)
+	//	{
+	//		float weight_change = 0.0f;
+	//		float Aplus = (1.0f - weight) * nu_pos;
+	//		float Aminus = (weight - (-1.0f)) * nu_neg;
+
+
+	//		if (diff > 0.0f)
+	//		{
+	//			// x > 0
+	//			weight_change += Aplus * exp(-diff / 3.0f);
+	//		}
+	//		else if (diff < 0.0f)
+	//		{
+	//			// x < 0
+	//			weight_change += Aminus * exp(diff / 15.0f);
+	//		}
+	//		cout << "Weight: " << weight << ", time diff: " << diff << ", weight update: " << weight_change << endl;
+	//	}
+	//}
 }
