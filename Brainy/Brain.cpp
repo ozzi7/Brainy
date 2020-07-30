@@ -33,7 +33,7 @@ Brain::Brain(int _nof_input_neurons, int _nof_output_neurons, int _nof_main_neur
 		{
 			if (i != j && (i >= nof_input_neurons || j > i)) // disallow self-loops and disallow input to input n. connections
 			{
-				Axon* axon = new Axon(100.0f);
+				Axon* axon = new Axon(20.0f);
 
 				axon->connecting = make_tuple(all_neurons[i], all_neurons[j]);
 

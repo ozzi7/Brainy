@@ -55,6 +55,6 @@ private:
 
 	bool is_adaptive;
 	bool is_decaying;
-	bool is_stdp_enabled = true;
+	bool is_stdp_enabled = false;
 	priority_queue<tuple<float, Axon*>, vector<tuple<float, Axon*>>, AxonFiringComparator> * pq;
 };

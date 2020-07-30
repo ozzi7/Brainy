@@ -29,7 +29,7 @@ const int nof_main_neurons = 8;
 const int total_neurons = nof_input_neurons + nof_output_neurons + nof_main_neurons;
 const int nof_parameters = 2 * (total_neurons * (total_neurons - 1) - (nof_input_neurons)*(nof_input_neurons-1)/2); // 2 times the number of axons
 const float step_size_ms = 100;
-const float sigma = 0.01f; // higher neuron count => lower sigma
+const float sigma = 0.001f; // higher neuron count => lower sigma
 const float required_accuracy = 0.99f;
 
 /* Random generator for gaussian samples */

@@ -25,7 +25,7 @@ void Neuron::Activate(Axon* activated_axon, float timestamp, float value)
 		float adaption_time_constant = 30.0f; // should be around the memory time needed (with different values per neuron)
 		float passed_time = (timestamp - last_decay_timestamp);
 		a_t = (exp((-passed_time) / adaption_time_constant) * a_t + (1 - exp((-passed_time) / adaption_time_constant)) * has_fired * 1);
-		float activation_threshold = initial_activation_threshold + beta * a_t;
+		activation_threshold = initial_activation_threshold + beta * a_t;
 	}
 	has_fired = false;
 	last_decay_timestamp = timestamp;
@@ -67,7 +67,7 @@ void Neuron::Reset()
 	last_decay_timestamp = 0.0f;
 	current_potential = starting_potential;
 	nof_firings = 0.0f;
-	//activation_threshold = initial_activation_threshold;
+	activation_threshold = initial_activation_threshold;
 	a_t = 0.0f;
 	has_fired = false;
 	neuron_firings.clear();
@@ -116,7 +116,7 @@ void Neuron::Update_Weights_STDP(float timestamp)
 	// removes the first and already updated axon activations
 	incoming_axon_activations.erase(incoming_axon_activations.begin(), incoming_axon_activations.begin() + i);
 
-	neuron_firings.clear(); // later should be deleted
+	////neuron_firings.clear(); // later should be deleted
 
 	// weight adjustment test
 	//for (float weight = -1.0f; weight <= 1.0f; weight = weight + 0.1f)
